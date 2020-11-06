@@ -113,7 +113,8 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     this.state = {
       currentIndex: props.currentIndex,
-      interactionIsIdle: isTouch(),
+      // interactionIsIdle: isTouch(),
+      interactionIsIdle: false,
     };
   }
 
@@ -124,6 +125,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     this.mounted = true;
 
     if (hideControlsWhenIdle && this.container) {
+      this.handleMouseActivity();
       this.container.addEventListener('mousedown', this.handleMouseActivity);
       this.container.addEventListener('mousemove', this.handleMouseActivity);
       this.container.addEventListener('touchmove', this.handleMouseActivity);
