@@ -793,10 +793,10 @@ var View = function View(props) {
       isFullscreen = props.isFullscreen,
       isModal = props.isModal;
 
-  var innerProps = {
+  var innerProps = _extends({
     alt: formatters.getAltText({ data: data, index: index }),
     src: getSource({ data: data, isFullscreen: isFullscreen })
-  };
+  }, data.height ? { height: data.height } : {}, data.width ? { width: data.width } : {});
 
   return glam(
     Div,

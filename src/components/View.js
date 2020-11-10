@@ -28,6 +28,8 @@ const View = (props: Props) => {
   const innerProps = {
     alt: formatters.getAltText({ data, index }),
     src: getSource({ data, isFullscreen }),
+    ...(data.height ? { height: data.height } : {}),
+    ...(data.width ? { width: data.width } : {})
   };
 
   return (
